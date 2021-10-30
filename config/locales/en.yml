@@ -30,4 +30,158 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  signup: 'Sign up'
+  signup_action: 'Signup'
+  login: 'Login'
+  login_action: 'Log in'
+  logout: 'Logout'
+  cancel: 'Cancel'
+  dogtrainers: 'Dog Trainers'
+  allusers: 'All Users'
+  hello: 'Hello'
+  settings: 'Settings'
+
+  home:
+    title: 'Welcome to Webdog!'
+    second: 'We are a small dog training club located at Bussigny VD.'
+
+  newblog: 'New blog article'
+  editblog: 'Edit blog article'
+  writeblog: 'Write an article'
+  allblog: 'All Blog Articles'
+  nocomments: 'No comments are permitted on blog articles.'
+
+  newforum: 'New forum post'
+  forumposts: 'Forum posts'
+  editforum: 'Edit forum post'
+  max150: 'Maximum 150 characters'
+  noforumcomments: 'There are no comments on this post yet.'
+  addcomment: 'Add a comment'
+  comments: 'Comments'
+
+  edituser: 'Edit User details'
+  usage: 'User of webdog for'
+
+  alltrainers: 'All Dog Trainers'
+  trainerdescrip: "These are all the certified dog trainers in our club."
+  certification: 'Certified MEC dog trainer'
+  trainertime: 'Has been a trainer of Web Dog for'
+
+  account: 
+    mydog: 'My dog'
+    adddog: 'Add dog'
+    details: 'My details'
+    forum: 'My forum questions'
+    currentavatar: "My current avatar photo"
+    edit: 'Edit my account details'
+    editdog: "Edit my dog's details"
+    dogdetails: "Add my dog's details"
+    currentdog: "My dog's current photo"
+  
+  doginfo:
+    name: "My dog's name is"
+    he: "He's a" 
+    she: "She's a"
+    and: "and"
+    old: "old."
+    noinfo: "I haven't provided my dog's information yet."
+    
+  
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
+        one: "less than a minute"
+        other: "less than %{count} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one: "about 1 hour"
+        other: "about %{count} hours"
+      x_days:
+        one: "1 day"
+        other: "%{count} days"
+      x_months: 
+        one: "1 month"
+        other: "%{count} months"
+      about_x_months: 
+        one: "about 1 month"
+        other: "about %{count} months"
+      over_x_years:
+        one: "over 1 year"
+        other: "over %{count} years"
+      about_x_years:
+        one: "1 year"
+        other: "%{count} years"
+      almost_x_years:
+        one: "almost 1 year"
+        other: "almost %{count} years"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            introduction:
+              too_long: "is too long"
+            name:
+              blank: "is blank"
+              too_long: "is too long"
+            email:
+              blank: "is blank"
+              taken: "is already taken"
+        post:
+          attributes:
+            title:
+              blank: "is blank"
+              too_long: "is too long"
+            body:
+              blank: "is blank"
+              too_long: "is too long"
+        blogpost:
+          attributes:
+            title:
+              blank: "is blank"
+              too_long: "is too long"
+            body:
+              blank: "is blank"
+            meta:
+              blank: "is blank"
+              too_long: "is too long"
+  
+
+  edit: 'Edit'
+  update: 'Update'
+  delete: 'Delete'
+  submit: 'Submit'
+
+
+  helpers: 
+    label:
+      post:
+        title: 'Title'
+        body: 'Body'
+        user: 'User'
+        update: 'Update Tip'
+        cancel: 'Cancel'
+      user:
+        email: 'Email'
+        name: 'Name'
+        password: 'Password'
+        avatar: 'Avatar'
+        update: 'Update'
+        cancel: 'Cancel'
+      blogpost:
+        title: 'Title'
+        body: 'Body'
+        meta: 'Meta'
+        maximum: 'Maximum 100 characters'
+        update: 'Update'
+        submit: 'Submit'
+        cancel: 'Annuler'
+      dog: 
+        name: 'Name'
+        breed: 'Breed'
+        gender: 'Gender'
+        birthday: 'Birthday'
+        photo: 'Photo'

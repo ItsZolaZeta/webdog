@@ -1,0 +1,29 @@
+<%= form_for(post) do |form| %>
+  <% if post.errors.any? %>
+    <%= render partial: 'model_errors', locals: { model: post } %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :title, class: 'input', placeholder: "Title" %>
+      <small class=""><%= translate('max150') %></small>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :body, class: 'label' %>
+    <div class="control">
+      <%= form.text_area :body, class: 'textarea', placeholder: "Enter the details of your question here.", rows: "7" %>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit translate('submit'), class: 'button is-primary' %>
+    </div>
+    <div class="control">
+      <%= link_to translate('cancel'), posts_path, class: 'button is-primary is-light' %>
+    </div>
+  </div>
+<% end %>

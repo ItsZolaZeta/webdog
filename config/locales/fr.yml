@@ -1,0 +1,155 @@
+fr:
+  signup: 'Inscription'
+  signup_action: "M'inscrire"
+  login: 'Connexion'
+  login_action: 'Me connecter'
+  logout: 'Déconnexion'
+  cancel: 'Annuler'
+  dogtrainers: 'Éducateurs canins'
+  allusers: 'Tous utilisateurs'
+  hello: 'Bonjour'
+  settings: 'Paramètres'
+
+  home:
+    title: 'Bienvenue chez Webdog!'
+    second: "Nous sommes une petite centre d'éducation canine situé à Bussigny, VD."
+  
+  newblog: 'Nouveau article de blog'
+  editblog: "Modifier l'article du blog"
+  writeblog: 'Écrire un article'
+  allblog: 'Tous Articles du Blog'
+  nocomments: "Aucun commentaire n'est autorisé sur les articles de blog."
+
+  newforum: 'Nouvelle question'
+  forumposts: 'Questions sur le forum'
+  editforum: 'Modifier la question'
+  max150: '150 caractères maximum'
+  noforumcomments: "Il n'y a pas encore de commentaires sur cette question."
+  addcomment: 'Ajoute un commentaire'
+  comments: 'Commentaires'
+
+  edituser: "Modifier les détails de l'utilisateur"
+  usage: 'Utilise webdog depuis'
+
+  alltrainers: 'Tous nos éducateurs de chiens'
+  trainerdescrip: "Ce sont tous les éducateurs de chiens certifiés de notre club."
+  certification: 'Éducateur de chien certifié MEC'
+  trainertime: 'Éducateur chez Web Dog depuis'
+
+  account:
+    mydog: 'Mon chien'
+    adddog: 'Ajouter chien'
+    details: 'Mes détails'
+    forum: 'Mes questions sur le forum'
+    currentavatar: "Mon avatar actuelle"
+    edit: 'Modifier les détails de mon compte'
+    editdog: "Modifier les détails de mon chien"
+    dogdetails: "Ajouter les détails de mon chien"
+    currentdog: "La photo actuelle de mon chien"
+  
+  doginfo:
+    name: "Mon chien s'appelle "
+    he: "Il est un" 
+    she: "Elle est une "
+    and: "et a"
+    old: "."
+    noinfo: "Je n'ai pas fourni les informations de mon chien."
+  
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
+        one: "moins d'une minute"
+        other: "moins de %{count} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one: "environ 1 heure"
+        other: "environ %{count} heures"
+      x_days:
+        one: "1 jour"
+        other: "%{count} jours"
+      x_months: 
+        one: "1 mois"
+        other: "%{count} mois"
+      about_x_months: 
+        one: "environ 1 mois"
+        other: "environ %{count} mois"
+      over_x_years:
+        one: "plus d'une année"
+        other: "plus que %{count} ans"
+      about_x_years:
+        one: "1 année"
+        other: "%{count} ans"
+      almost_x_years:
+        one: "presque 1 année"
+        other: "presque %{count} ans"
+  
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            introduction:
+              too_long: "trop longue"
+            name:
+              blank: "ne peut pas être vide"
+              too_long: "trop longue"
+            email:
+              blank: "ne peut pas être vide"
+              taken: "déjà pris"
+        post:
+          attributes:
+            title:
+              blank: "ne peut pas être vide"
+              too_long: "trop longue"
+            body:
+              blank: "ne peut pas être vide"
+              too_long: "trop longue"
+        blogpost:
+          attributes:
+            title:
+              blank: "ne peut pas être vide"
+              too_long: "trop longue"
+            body:
+              blank: "ne peut pas être vide"
+            meta:
+              blank: "ne peut pas être vide"
+              too_long: "trop longue"
+
+
+  
+  edit: 'Modifier'
+  update: 'Mettre à jour'
+  delete: 'Supprimer'
+  submit: 'Soumettre'
+
+  helpers: 
+    label:
+      post:
+        title: 'Titre'
+        body: 'Corps du texte'
+        user: 'Auteur'
+        update: 'Mettre à jour conseil'
+        cancel: 'Annuler'
+      user:
+        email: 'Email'
+        name: 'Nom et prenom'
+        password: 'Mot de passe'
+        avatar: 'Avatar'
+        update: 'Mettre à jour'
+        cancel: 'Annuler'
+      blogpost:
+        title: 'Titre'
+        body: 'Corps du texte'
+        meta: 'Meta'
+        maximum: '100 caractères maximum'
+        update: 'Mettre à jour'
+        submit: 'Submit'
+        cancel: 'Annuler'
+      dog: 
+        name: 'Nom'
+        breed: 'Race'
+        gender: 'Sexe'
+        birthday: 'Date de naissance'
+        photo: 'Photo'

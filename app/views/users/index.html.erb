@@ -1,0 +1,23 @@
+<%= render partial: 'notifications', locals: { notice: notice, alert: alert } %>
+
+<div class="block m-6">
+  <h1 class="title page-title"><%= translate('allusers') %></h1>
+  
+  <div class="columns is-flex-wrap-wrap">
+    <% @users.each do |user| %>
+      <div class="column is-4">
+        <% if(is_admin?) %>
+          <%= render partial: 'editable_user_card', locals: { user: user } %>
+        <% elsif(is_trainer?) %>
+          <%= link_to user_path(user) do %>
+            <%= render partial: 'user_card', locals: { user: user } %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="">
+    <%= paginate @users %> 
+  </div>
+</div>

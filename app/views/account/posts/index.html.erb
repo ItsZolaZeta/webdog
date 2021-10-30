@@ -1,0 +1,49 @@
+<%= render partial: 'account_navbar', locals: { nav: "posts" } %>
+
+<div class="block m-6">
+  <h1 class="title page-title"><%= translate('account.forum') %></h1>
+  <div class="buttons are-small button-center">
+    <%= link_to translate('newforum'), new_post_path, class: 'button is-primary' %>
+  </div>
+  
+  <div class="block">
+    <% @posts.each do |post| %>
+      <%= link_to(post_path(post)) do%>
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+
+            <div class="columns">
+              <div class="column">
+                <h1 class="title"><%= post.title %></h1>
+              </div>
+
+              <div class="level">
+                <div class="media level-right">
+                  <div class="media-left level-item">
+                    <figure class="image is-48x48">
+                      <%# <img src="https://bulma.io/images/placeholders/96x96.png" alt="user image"> %>
+                      <%= image_tag post.user.avatar, alt:  "Avatar for #{post.user.name}" %>
+                    </figure>
+                  </div>
+                  <div class="media-content level-item">
+                    <p class="subtitle is-4"><%= post.user.name %> 
+                      <%= render partial: 'role_tag', locals: { user: post.user } %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <%= post.body[0, 300] %>
+            </div>
+          </article>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="is-centered">
+    <%# <%= paginate @posts %>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+
+<div class="tabs is-centered is-boxed">
+  <ul>
+    <li>
+      <%= link_to('/en/') do %>
+        <span>Chat</span>
+      <% end %>
+    </li>
+
+    <% if(nav == "posts") %> 
+      <li class="is-active"> 
+    <% else %> 
+      <li >
+    <%end %>
+      <%= link_to(account_posts_path) do %>
+        <span><%= translate('account.forum') %></span>
+      <% end %>
+    </li>
+
+    <% if(nav == "details") %> 
+      <li class="is-active"> 
+    <% else %> 
+      <li >
+    <%end %>
+      <%= link_to(account_path) do %>
+        <span><%= translate('account.details') %></span>
+      <% end %>
+    </li>
+    
+
+    <% if(nav == "dog") %> 
+      <li class="is-active"> 
+    <% else %> 
+      <li >
+    <%end %>
+      <% if current_user.dog.present? %>
+        <%= link_to(edit_account_dog_path(current_user.dog)) do %>
+          <span><%= translate('account.mydog') %></span>
+        <% end %>
+      <% else %>
+        <%= link_to(new_account_dog_path) do %> 
+          <span><%= translate('account.adddog') %></span>
+        <% end %> 
+      <% end %>
+    </li>
+  </ul>
+</div>

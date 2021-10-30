@@ -1,0 +1,39 @@
+<section class="hero is-primary">
+  <div class="hero-body mt-3">
+    <p class="title">
+      <%= translate('home.title') %>
+    </p>
+    <p class="subtitle">
+      <%= translate('home.second') %>
+    </p>
+    <div class="menu">
+      <ul class="has-text-right">
+        <li><%= link_to trainers_path do %>Schedule classes with our <strong>dog trainers</strong> directly on the website<% end %></li>
+        <li><%= link_to blogposts_path do %>Read our <strong>blog</strong> to see articles on specific topics<% end %></li>
+        <li><%= link_to forum_path do %>Post your question to our <strong>forum </strong> space<% end %></li>
+      </ul>
+    </div> 
+  </div>
+  
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <%= image_tag(asset_path('slider/murilo-viviani-FcegfS05w2c-unsplash.jpg')) %>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <%= image_tag(asset_path('slider/robin-jonathan-deutsch-dJqlGNas_yg-unsplash.jpg')) %>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <%= image_tag(asset_path('slider/ron-fung-VQJXJ4IaU_o-unsplash.jpg')) %>
+    </div>
+
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+
+</section>

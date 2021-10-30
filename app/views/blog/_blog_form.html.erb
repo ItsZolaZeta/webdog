@@ -1,0 +1,36 @@
+<%= form_for(blog)  do |form| %>
+  <% if blog.errors.any? %>
+    <%= render partial: 'model_errors', locals: { model: blog } %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :title, class: 'input', placeholder: "Title" %>
+      <small class=""><%= translate('helpers.label.blogpost.maximum') %></small>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :meta, class: 'label' %>
+    <div class="control">
+      <%= form.text_area :meta, class: 'textarea', placeholder: "Enter the meta description of your blogpost.", rows: "3" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :body, class: 'label' %>
+    <div class="control">
+      <%= form.text_area :body, class: 'textarea', placeholder: "Enter the details of your blogpost.", rows: "13" %>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit translate('submit'), class: 'button is-primary' %>
+    </div>
+    <div class="control">
+      <%= link_to translate('cancel'), blogposts_path, class: 'button is-primary is-light' %>
+    </div>
+  </div>
+<% end %>

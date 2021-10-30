@@ -1,0 +1,35 @@
+<div class="columns is-mobile">
+  <div class="column"></div>
+
+  <div class="column is-two-thirds">
+    <div class="box m-6">
+      <h1 class="title"><%= translate('login') %></h1>
+
+      <%= render partial: 'notifications', locals: { notice: notice, alert: alert } %>
+
+      <%= form_tag(sessions_path) do %>
+        <div class="field">
+          <%= label(:email, nil, class: 'label') %>
+          <div class="control">
+            <%= text_field_tag(:email, nil, class: 'input', placeholder: 'e.g. hello@gmail.com') %>
+          </div>
+        </div>
+        <div class="field">
+          <%= label(:password, nil, class: 'label') %>
+          <div class="control">
+            <%= password_field_tag(:password, nil, class: 'input') %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= submit_tag translate('login_action'), class: 'button is-primary' %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="column"></div>
+
+</div>

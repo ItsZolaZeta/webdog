@@ -1,0 +1,71 @@
+<div class="container my-6">
+  <div class="columns">
+
+    <div class="column is-two-fifths">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 2</div>
+          <figure class="image is-4by3">
+            <%# <%= image_tag "https://bulma.io/images/placeholders/1280x960.png", alt: "Avatar for #{@trainer.name}" %>
+            <%= image_tag @trainer.avatar, alt:  "Avatar for #{@trainer.name}" %>
+          </figure>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 2</div>
+          <figure class="image is-4by3">
+            <%= image_tag @trainer.dog.photo, alt:  "Avatar for #{@trainer.name}'s dog" %>
+          </figure>
+        </div>
+
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      </div>
+    </div>
+
+    <div class="column mx-6">
+      <p class="title">
+        <%= @trainer.name %>
+      </p>
+      <p class="menu-label"><%= translate('certification') %></p>
+      <p class="subtitle is-6">
+        <% if @trainer.dog.present? %>
+          <%= translate('doginfo.name') %> <%= @trainer.dog.name %>. 
+          <% if @trainer.dog.gender == 'Male' %>
+            <%= translate('doginfo.he') %> <%= @trainer.dog.breed %> <%= translate('doginfo.and') %> <%= time_ago_in_words(@trainer.dog.birthday) %> <%= translate('doginfo.old') %>
+          <% else %>
+            <%= translate('doginfo.she') %> <%= @trainer.dog.breed %> <%= translate('doginfo.and') %> <%= time_ago_in_words(@trainer.dog.birthday) %> <%= translate('doginfo.old') %>
+          <% end %>
+        <% end %>
+      </p>
+      <p class="subtitle">
+        <% if @trainer.introduction.present? %>
+          <%= @trainer.introduction %>
+        <% else %>
+          No introduction.
+        <% end %>
+      </p>
+        <ul class="menu-list">
+          <li>
+            <p class="trainer_class_title">Classes that I teach</p>
+            <ul>
+              <li> 
+                <p>Adolescent Group Class</p>
+              </li>
+              <li>
+                <p>Puppy Group Class</p>
+              </li>
+              <li>
+                <p>Private 1-on-1</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>
+<hr>
+  <!-- Calendly inline widget begin -->
+  <div class="calendly-inline-widget" data-url="https://calendly.com/webdog" style="min-width:250px;height:800px;"></div>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <!-- Calendly inline widget end -->

@@ -1,0 +1,11 @@
+
+<% if user.dog.present? %>
+  <p><%= translate('doginfo.name') %> <%= user.dog.name %>. 
+  <% if user.dog.gender == 'Male' %>
+    <%= translate('doginfo.he') %> <%= user.dog.breed %> <%= translate('doginfo.and') %> <%= time_ago_in_words(user.dog.birthday) %> <%= translate('doginfo.old') %></p>
+  <% else %>
+    <%= translate('doginfo.she') %> <%= user.dog.breed %> <%= translate('doginfo.and') %> <%= time_ago_in_words(user.dog.birthday) %> <%= translate('doginfo.old') %></p>
+  <% end %>
+<% else %>
+  <p><%= translate('doginfo.noinfo') %></p>
+<% end %>

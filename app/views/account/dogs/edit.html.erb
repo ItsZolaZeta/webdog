@@ -1,0 +1,70 @@
+<%= render partial: 'notifications', locals: { notice: notice, alert: alert } %>
+
+<%= render partial: 'account_navbar', locals: { nav: "dog" } %>
+
+<div class="columns is-mobile">
+  <div class="column"></div>
+
+  <div class="column is-two-thirds">
+    <div class="box m-6">
+
+      <h1 class="title"><%= translate('account.editdog') %></h1>
+      <figure class="image is-4by3">
+        <%= image_tag @dog.photo, alt:  "Avatar for #{@dog.name}"%>
+      </figure>
+      <p class="menu-label center-text"><%= translate('account.currentdog') %></p>
+
+      <%= form_for(@dog, url: dog_path(@dog)) do |form| %>
+        <% if @dog.errors.any? %>
+          <%= render partial: 'model_errors', locals: { model: @dog } %>
+        <% end %>
+        
+        <div class="field">
+          <%= form.label :name, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :name, class: 'input', placeholder: "Name" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :breed, class: 'label' %>
+          <div class="select">
+            <%= form.select :breed, ['German Shepherd', 'Swiss White Shepherd', 'Australian Shepherd', 
+                              'Goldren Retriever', 'Labrador Retriever', 'Husky', 'Chihuahua', 'Poodle', 'Mixed'],
+                      {}, class: "select" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :gender, class: 'label' %>
+          <div class="select">
+            <%= form.select :gender, ['Male', 'Female'], {}, class: "select" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :birthday, class: 'label' %>
+          <div class="control">
+            <%= form.date_field :birthday, class: 'input' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label :photo, class: 'label' %>
+          <div class="control">
+            <%= form.file_field :photo, class: 'input' %>
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <%= form.submit translate('update'), class: 'button is-primary' %>
+          </div>
+        </div>
+      
+      <% end %>
+    </div>
+  </div>
+
+  <div class="column"></div>
+
+</div>

@@ -1,0 +1,60 @@
+<%= render partial: 'notifications', locals: { notice: notice, alert: alert } %>
+<%= render partial: 'account_navbar', locals: { nav: "details" } %>
+
+<div class="columns is-mobile">
+  <div class="column"></div>
+
+  <div class="column is-two-thirds">
+    <div class="box m-6">
+      <h1 class="title"><%= translate('account.edit') %></h1>
+      <% if @user.errors.any? %>
+        <%= render partial: 'model_errors', locals: { model: @user } %>
+      <% end %>
+      <figure class="image is-4by3">
+        <%= image_tag @user.avatar, alt:  "Avatar for #{@user.name}"%>
+      </figure>
+      <p class="menu-label center-text"><%= translate('account.currentavatar') %></p>
+
+      <%= form_for(@user) do |form| %>
+
+        <div class="field">
+          <%= form.label :name, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :name, class: 'input', placeholder: "Name" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :email, class: 'label' %>
+          <div class="control">
+            <%= form.email_field :email, class: 'input', placeholder: 'e.g. hello@gmail.com' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :avatar, class: 'label' %>
+          <div class="control">
+            <%= form.file_field(:avatar, class: 'input') %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :introduction, class: 'label' %>
+          <div class="control">
+            <%= form.text_area :introduction, class: 'textarea', placeholder: "Introduce yourself!", rows: "5" %>
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <%= form.submit translate('update'), class: 'button is-primary' %>
+          </div>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+
+  <div class="column"></div>
+
+</div>

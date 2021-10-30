@@ -1,0 +1,31 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=<%= root_path%>>
+      <%= image_tag "WebDog.png", alt: "Web Dog logo" %>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to "Home", root_path, class: 'navbar-item' %>
+      <%= link_to "Blog", blogposts_path, class: 'navbar-item' %>
+      <%= link_to "Forum", forum_path, class: 'navbar-item' %>
+      <%= link_to translate('dogtrainers'), trainers_path, class: 'navbar-item' %>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <%= link_to translate('signup'), signup_path, class: 'button is-primary' %>
+          <%= link_to translate('login'), login_path, class: 'button is-light' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

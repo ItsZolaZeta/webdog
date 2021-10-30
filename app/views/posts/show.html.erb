@@ -1,0 +1,106 @@
+<%= render partial: 'notifications', locals: { notice: notice, alert: alert } %>
+
+<div class="columns">
+  <div class="column"></div>
+
+  <div class="column is-two-thirds">
+    <div class="box m-6">
+
+      <div class="columns">
+        <div class="column">
+          <h1 class="title"><%= @post.title %></h1>
+          <% if(is_admin? || is_trainer? || current_user == @post.user) %>
+            <div class="buttons are-small">
+              <%= link_to translate('edit'), edit_post_path(@post), class: 'button is-link' %>
+              <%= link_to translate('delete'), post_path(@post), method: :delete, remote: true, class: 'button is-danger is-light' %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="level">
+          <div class="media level-right">
+            <div class="media-left level-item">
+              <figure class="image is-48x48">
+                <%# <img src="https://bulma.io/images/placeholders/96x96.png" alt="user image"> %>
+                <%= image_tag @post.user.avatar, alt:  "Avatar for #{@post.user.name}" %>
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="subtitle is-4 mb-0"><%= @post.user.name %> 
+                <%= render partial: 'role_tag', locals: { user: @post.user } %>
+              </p>
+              <p class="menu-label mt-1"><%= @post.created_at.strftime("%d %b '%y") %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <p class="subtitle is-6 keep-format"><%= @post.body %></p>
+      <hr>
+
+      <div class="card-body">
+        <% if(@post.comments.present?) %>
+          <h3><%= translate('comments') %></h3>
+          <div class="m-3" id="commentsList">
+            <% @post.comments.order(created_at: :asc).each do |comment| %>
+              <article class="media" id="comment-<%= comment.id %>">
+                <figure class="media-left">
+                  <p class="image is-64x64">
+                    <%# <img src="https://bulma.io/images/placeholders/128x128.png"> %>
+                    <%= image_tag comment.user.avatar, alt:  "Avatar for #{comment.user.name}" %>
+                  </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong><%= comment.user.name %></strong> <small><%= render partial: 'role_tag', locals: { user: comment.user } %></small> <small>on <%= comment.created_at.strftime("%d %b '%y at %R") %></small>
+                      <br>
+                        <%= comment.body %>
+                    </p>
+                  </div>
+                </div>
+                <% if(is_admin? || is_trainer? || current_user == comment.user)%>
+                  <div class="media-right">
+                    <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, remote: true, class: 'delete', role: 'button' %>
+                  </div>
+                <% end %>
+              </article>
+            <% end %>
+          </div>
+        <% else %>
+          <h3 class="menu-label"><%= translate('noforumcomments') %></h3>
+        <% end %>
+        
+        <% if(logged_in?) %>
+          <hr>
+          <p><%= translate('addcomment') %></p>
+          <%=
+            # Notice how #build is used here to instantiate a new empty Comment to be
+            # used in the form.  #build is a convenient way to create an empty
+            # associated model instance for situations like this, instead of using
+            # Comment.new within TipsController#show to create an empty instance.
+            form_for([@post, @post.comments.build]) do |form|
+          %> 
+          <%# , remote: true %>
+            <div class="field">
+
+              <div class="control">
+                <%= form.text_area :body, class: 'textarea', rows: "5" %>
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <%= form.submit translate('submit'), class: 'button is-primary' %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="column"></div>
+</div>

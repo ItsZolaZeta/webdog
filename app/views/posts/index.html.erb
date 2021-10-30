@@ -1,0 +1,54 @@
+<%= render partial: 'notifications', locals: { notice: notice, alert: alert } %>
+
+<div class="block m-6">
+  <h1 class="title is-2 page-title"><%= translate('forumposts') %></h1>
+  <div class="block">
+    <% if(logged_in?) %>
+      <div class="buttons are-small button-center">
+        <%= link_to translate('newforum'), new_post_path, class: 'button is-primary' %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="block">
+    <% @posts.each do |post| %>
+      <%= link_to(post_path(post)) do%>
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+
+            <div class="columns">
+              <div class="column">
+                <h1 class="title is-4"><%= post.title %></h1>
+              </div>
+
+              <div class="level">
+                <div class="media level-right">
+                  <div class="media-left level-item">
+                    <figure class="image is-48x48">
+                      <%# <img src="https://bulma.io/images/placeholders/96x96.png" alt="user image"> %>
+                      <%= image_tag post.user.avatar, alt:  "Avatar for #{post.user.name}" %>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="subtitle is-4 mb-0"><%= post.user.name %> 
+                      <%= render partial: 'role_tag', locals: { user: post.user } %>
+                    </p>
+                    <p class="menu-label mt-1"><%= time_ago_in_words(post.created_at) %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <%= post.body[0, 300] %>...
+            </div>
+          </article>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= paginate @posts %>
+  </div>
+</div>

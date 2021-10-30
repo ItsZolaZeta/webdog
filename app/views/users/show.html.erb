@@ -1,0 +1,54 @@
+<%= render partial: 'notifications', locals: { notice: notice, alert: alert } %>
+
+<div class="container my-2 mt-6">
+  <div class="columns">
+    <div class="column is-two-fifths">
+      <figure class="image is-4by3">
+        <%# <%= image_tag "https://bulma.io/images/placeholders/1280x960.png", alt: "Avatar for #{@user.name}" %>
+        <%= image_tag @user.avatar, alt:  "Avatar for #{@user.name}"%>
+      </figure>
+    </div>
+    <div class="column mx-6 my-3">
+      <p class="title">
+        <%= @user.name %>  <%= render partial: 'role_tag', locals: { user: @user } %>
+      </p>
+      <p class="menu-label"><%= translate('usage')%> <%= time_ago_in_words(@user.created_at) %></p>
+      <% if(is_admin?) %>
+        <div class="buttons are-small">
+          <%= link_to translate('edit'), edit_user_path(@user), class: 'button is-link' %>
+          <% if(@user.role != 'admin') %>
+            <%= link_to translate('delete'), user_path(@user) , method: :delete, remote: true, class: 'button is-danger is-light' %>
+          <% end %>
+        </div>
+      <% end %>
+      <p class="subtitle">
+        <% if @user.introduction.present? %>
+          <%= @user.introduction %>
+        <% else %>
+          No introduction.
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container my-2">
+  <div class="columns">
+    <div class="column is-two-fifths">
+      <figure class="image is-4by3">
+        <%# <%= image_tag "https://bulma.io/images/placeholders/1280x960.png", alt: "Avatar for #{@user.name}'s dog" %>
+        <%= image_tag @user.dog.photo, alt:  "Avatar for #{@user.name}'s dog"%>
+      </figure>
+    </div>
+    <div class="column mx-6 my-3">
+      <p class="subtitle">
+        <% if @user.dog.present? %>
+          <%= translate('doginfo.name') %> <%= @user.dog.name %>. 
+          <% if @user.dog.gender == 'Male' %>
+            <%= translate('doginfo.he') %> <%= @user.dog.breed %> <%= translate('doginfo.and') %> <%= time_ago_in_words(@user.dog.birthday) %> <%= translate('doginfo.old') %>
+          <% else %>
+            <%= translate('doginfo.she') %> <%= @user.dog.breed %> <%= translate('doginfo.and') %> <%= time_ago_in_words(@user.dog.birthday) %> <%= translate('doginfo.old') %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+</div>

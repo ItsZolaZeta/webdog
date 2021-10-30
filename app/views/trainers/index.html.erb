@@ -1,0 +1,20 @@
+<%= render partial: 'notifications', locals: { notice: notice, alert: alert } %>
+
+<div class="block m-6">
+
+  <h1 class="title page-title"><%= translate('alltrainers') %></h1>
+  <p class="center-text"><%= translate('trainerdescrip') %></p>
+  
+  <br>
+  
+  <div class="columns is-flex-wrap-wrap is-justify-content-center">
+    <% @trainers.each do |trainer| %>
+      <div class="column is-4" id="trainer-<%= trainer.id %>">
+        <%= link_to(trainer_path(trainer)) do %>         
+          <%= render partial: 'trainer_card', locals: { trainer: trainer } %>        
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+ 
+</div>

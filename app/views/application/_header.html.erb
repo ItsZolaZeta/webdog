@@ -1,0 +1,11 @@
+<% if(logged_in?) %>
+  <% if(is_admin?) %>
+    <%= render(partial: 'admin_header') %>
+  <% elsif(is_trainer?) %>
+    <%= render(partial: 'trainer_header') %>
+  <% else %>
+    <%= render(partial: 'client_header') %>
+  <% end %>
+<% else %>
+  <%= render(partial: 'anonymous_header') %>
+<% end %>

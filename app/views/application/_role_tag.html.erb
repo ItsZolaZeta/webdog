@@ -1,0 +1,10 @@
+<% case(user.role) %>
+  <% when "admin" then %>
+    <span class="tag is-warning is-light"><%= user.role %></span>
+  <% when "trainer" then %>
+    <span class="tag is-danger is-light"><%= user.role %></span>
+  <% when "client" then %>
+    <span class="tag is-primary is-light"><%= user.role %></span>
+  <% else %>
+    <span></span>
+<% end  %>

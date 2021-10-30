@@ -1,0 +1,60 @@
+<%= render partial: 'notifications', locals: { notice: notice, alert: alert } %>
+
+<%= render partial: 'account_navbar', locals: { nav: "dog" } %>
+
+<div class="columns is-mobile">
+  <div class="column"></div>
+
+  <div class="column is-two-thirds">
+    <div class="box m-6">
+
+      <h1 class="title"><%= translate('account.dogdetails') %></h1>
+
+      <%= form_for(@dog) do |form| %>
+        <% if @dog.errors.any? %>
+          <%= render partial: 'model_errors', locals: { model: @dog } %>
+        <% end %>
+        
+        <div class="field">
+          <%= form.label :name, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :name, class: 'input', placeholder: "Name" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :breed, class: 'label' %>
+          <div class="select">
+            <%= form.select :breed, ['German Shepherd', 'Swiss White Shepherd', 'Australian Shepherd', 
+                              'Goldren Retriever', 'Labrador Retriever', 'Husky', 'Chihuahua', 'Poodle', 'Mixed'],
+                      {}, class: "select" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :gender, class: 'label' %>
+          <div class="select">
+            <%= form.select :gender, ['Male', 'Female'], {}, class: "select" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :birthday, class: 'label' %>
+          <div class="control">
+            <%= form.date_field :birthday, class: 'input' %>
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <%= form.submit translate('submit'), class: 'button is-primary' %>
+          </div>
+        </div>
+      
+      <% end %>
+    </div>
+  </div>
+
+  <div class="column"></div>
+
+</div>
