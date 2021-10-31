@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'home#index'
@@ -29,16 +30,22 @@ Rails.application.routes.draw do
 
     resources :sessions, only: [:new, :create, :destroy]
 
-    resources :users #do end
+    resources :users 
 
-    resources :trainers, only: [:index, :show] # :edit, :update] 
-    # do
-    #   resources :events # may remove since using calendly api
-    # end
+    resources :trainers, only: [:index, :show] 
 
     resources :dogs, only: [:create, :update]
 
     resources :blog, as: :blogposts
+
+    get 'chat/index'
+
+    resources :conversations, only: [:create] do
+      member do
+        post :close
+      end
+      # resources :messages, only: [:create]
+    end
 
   end
 

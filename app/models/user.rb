@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_many :blogpost, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :dog, dependent: :destroy
+  
+  has_many :messages
+  has_many :conversations, foreign_key: :sender_id
 
   has_secure_password
 
