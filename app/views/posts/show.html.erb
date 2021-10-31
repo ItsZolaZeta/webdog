@@ -21,7 +21,6 @@
           <div class="media level-right">
             <div class="media-left level-item">
               <figure class="image is-48x48">
-                <%# <img src="https://bulma.io/images/placeholders/96x96.png" alt="user image"> %>
                 <%= image_tag @post.user.avatar, alt:  "Avatar for #{@post.user.name}" %>
               </figure>
             </div>
@@ -47,7 +46,6 @@
               <article class="media" id="comment-<%= comment.id %>">
                 <figure class="media-left">
                   <p class="image is-64x64">
-                    <%# <img src="https://bulma.io/images/placeholders/128x128.png"> %>
                     <%= image_tag comment.user.avatar, alt:  "Avatar for #{comment.user.name}" %>
                   </p>
                 </figure>
@@ -75,16 +73,8 @@
         <% if(logged_in?) %>
           <hr>
           <p><%= translate('addcomment') %></p>
-          <%=
-            # Notice how #build is used here to instantiate a new empty Comment to be
-            # used in the form.  #build is a convenient way to create an empty
-            # associated model instance for situations like this, instead of using
-            # Comment.new within TipsController#show to create an empty instance.
-            form_for([@post, @post.comments.build]) do |form|
-          %> 
-          <%# , remote: true %>
+          <%= form_for([@post, @post.comments.build]) do |form| %> 
             <div class="field">
-
               <div class="control">
                 <%= form.text_area :body, class: 'textarea', rows: "5" %>
               </div>

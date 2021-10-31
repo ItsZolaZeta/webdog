@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   before_action :set_user,                only: [:show, :edit, :update, :destroy]
   before_action :ensure_admin,            only: [:edit, :destroy]
   before_action :ensure_admin_or_trainer, only: [:index]
@@ -52,9 +53,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
+      if @user.destroy
+        format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
+      else
+        format.html { redirect_to users_path, alert: 'We had a small problem...' }
+      end
     end
   end
 

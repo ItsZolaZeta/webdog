@@ -6,15 +6,6 @@ class Dog < ApplicationRecord
                                       'Goldren Retriever', 'Labrador Retriever', 'Husky', 'Chihuahua', 'Poodle', 'Mixed'] }
   validates :gender, presence: true, inclusion: { in: ['Male', 'Female'] }
 
-  # after_initialize :default_breed!
-
   mount_uploader :photo, DogAvatarUploader
-                                        
-  private
-  
-  # def default_breed!
-  #   self.breed ||= 'TBA'
-  #   # don't need and can delete
-  # end
 
 end

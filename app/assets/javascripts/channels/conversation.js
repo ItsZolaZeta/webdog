@@ -4,8 +4,7 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
   },
 
   disconnected: function() {
-    // Called when the subscription has been terminated by the server
-    
+    // Called when the subscription has been terminated by the server   
   },
 
   received: function(data) {

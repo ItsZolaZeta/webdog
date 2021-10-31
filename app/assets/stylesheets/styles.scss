@@ -133,4 +133,49 @@ img {
   height: 100%;
   border: 0;
 }
+
+// --------------------------------------- Chat --------------------------------------
 	
+#conversations-list{
+  > li {
+    margin-bottom: 1rem;
+  }
+}
+
+.row {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 5px;
+}
+
+.message-sent {
+  color: hsl(0, 0%, 14%);
+  border-color: hsl(171, 100%, 41%);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 0 4px 0 0;
+  padding: 0.5em 0.75em;
+  text-align: right;
+}
+
+.message-received {
+  color: hsl(0, 0%, 14%);
+  border-color: hsl(217, 71%, 53%);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 0 0 0 4px;
+  padding: 0.5em 0.75em;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column-reverse;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.users-list {
+  max-height: 55vh;
+  overflow-y: scroll;
+}

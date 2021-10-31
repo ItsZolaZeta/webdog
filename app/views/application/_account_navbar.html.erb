@@ -1,12 +1,16 @@
 
 <div class="tabs is-centered is-boxed">
   <ul>
-    <li>
-      <%= link_to('/en/') do %>
+    <% if(nav == "chat") %> 
+      <li class="is-active"> 
+    <% else %> 
+      <li >
+    <%end %>
+      <%= link_to(chat_index_path) do %>
         <span>Chat</span>
       <% end %>
     </li>
-
+    
     <% if(nav == "posts") %> 
       <li class="is-active"> 
     <% else %> 

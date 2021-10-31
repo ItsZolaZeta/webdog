@@ -3,7 +3,14 @@ class ChatController < ApplicationController
     session[:conversations] ||= []
 
     @users = User.all.where.not(id: current_user)
-    @conversations = Conversation.includes(:recipient, :messages)
-                                 .find(session[:conversations])
+    existing = []
+
+    for index in session[:conversations] do
+      if(Conversation.exists?(index))
+        existing.append(index)
+      end
+    end
+
+    @conversations = Conversation.includes(:recipient, :messages).find(existing)
   end
 end

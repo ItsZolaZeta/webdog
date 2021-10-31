@@ -3,18 +3,10 @@ class Account::DogsController < ApplicationController
   def new
     @dog = Dog.new
   end
-
-  # def create
-  #   # @dog.create
-  # end
   
   def edit  
     @dog = Dog.find(params[:id])
   end
-
-  # def update
-  #   # @dog.update
-  # end
 
   private
 

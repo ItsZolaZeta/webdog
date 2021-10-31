@@ -4,12 +4,10 @@ class AccountController < ApplicationController
   
   def edit
     @user = current_user
-    # @dog = current_user.dog
   end
 
   def update
     current_user.update(user_params)
-    # current_user.dog.update(dog_params)
     redirect_to account_path
   end
 

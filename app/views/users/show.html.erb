@@ -4,7 +4,6 @@
   <div class="columns">
     <div class="column is-two-fifths">
       <figure class="image is-4by3">
-        <%# <%= image_tag "https://bulma.io/images/placeholders/1280x960.png", alt: "Avatar for #{@user.name}" %>
         <%= image_tag @user.avatar, alt:  "Avatar for #{@user.name}"%>
       </figure>
     </div>
@@ -35,7 +34,6 @@
   <div class="columns">
     <div class="column is-two-fifths">
       <figure class="image is-4by3">
-        <%# <%= image_tag "https://bulma.io/images/placeholders/1280x960.png", alt: "Avatar for #{@user.name}'s dog" %>
         <%= image_tag @user.dog.photo, alt:  "Avatar for #{@user.name}'s dog"%>
       </figure>
     </div>

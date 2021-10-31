@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
-
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
@@ -59,4 +58,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 })();
-//not executing and maybe can remove
