@@ -38,11 +38,30 @@
       <p class="subtitle is-6 keep-format"><%= @post.body %></p>
       <hr>
 
+      <% if(logged_in?) %>
+        <p><%= translate('addcomment') %></p>
+        <%= form_for([@post, @post.comments.build]) do |form| %> 
+          <div class="field">
+            <div class="control">
+              <%= form.text_area :body, class: 'textarea', rows: "5" %>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <%= form.submit translate('submit'), class: 'button is-primary' %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <hr>
+
       <div class="card-body">
-        <% if(@post.comments.present?) %>
+        <% if(@post.comments.count != 0) %>
           <h3><%= translate('comments') %></h3>
           <div class="m-3" id="commentsList">
-            <% @post.comments.order(created_at: :asc).each do |comment| %>
+            <% @post.comments.order(created_at: :desc).each do |comment| %>
               <article class="media" id="comment-<%= comment.id %>">
                 <figure class="media-left">
                   <p class="image is-64x64">
@@ -70,23 +89,6 @@
           <h3 class="menu-label"><%= translate('noforumcomments') %></h3>
         <% end %>
         
-        <% if(logged_in?) %>
-          <hr>
-          <p><%= translate('addcomment') %></p>
-          <%= form_for([@post, @post.comments.build]) do |form| %> 
-            <div class="field">
-              <div class="control">
-                <%= form.text_area :body, class: 'textarea', rows: "5" %>
-              </div>
-            </div>
-
-            <div class="field is-grouped">
-              <div class="control">
-                <%= form.submit translate('submit'), class: 'button is-primary' %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
       </div>
 
     </div>
