@@ -30,27 +30,15 @@ client9 = User.create!(email: 'client9@gmail.com', password: 'pw', name: 'Kestre
 # Dummy dogs
 breed_list = ['German Shepherd', 'Swiss White Shepherd', 'Australian Shepherd', 
     'Goldren Retriever', 'Labrador Retriever', 'Husky', 'Chihuahua', 'Poodle', 'Mixed']
-dog1 = Dog.create!(name: "Zuka", breed: breed_list(1), birthday: "2020-07-31")
-admin1.dog = dog1
-admin2.dog = dog1
+dog1 = Dog.create!(name: "Zuka", breed: breed_list[1], birthday: "2020-07-31", gender: 'Male', user: admin1)
 
-dog2 = Dog.create!(name: "Billy", breed: breed_list(2), birthday: "2020-08-10")
-client1.dog = dog2
-client2.dog = dog2
-client3.dog = dog2
-client4.dog = dog2
-client5.dog = dog2
-client6.dog = dog2
-client7.dog = dog2
-client8.dog = dog2
-client9.dog = dog2
+dog2 = Dog.create!(name: "Billy", breed: breed_list[2], birthday: "2020-08-10", gender: 'Male', user: client1)
 
-dog3 = Dog.create!(name: "Riley", breed: breed_list(1), birthday: "2020-01-23")
-trainer1.dog = dog3
-dog4 = Dog.create!(name: "Plume", breed: breed_list(3), birthday: "2018-05-20")
-trainer2.dog = dog4
-dog5 = Dog.create!(name: "Rookie", breed: breed_list(5), birthday: "2019-08-15")
-trainer3.dog = dog5
+dog3 = Dog.create!(name: "Riley", breed: breed_list[1], birthday: "2020-01-23", gender: 'Female', user: trainer1)
+
+dog4 = Dog.create!(name: "Plume", breed: breed_list[3], birthday: "2018-05-20", gender: 'Female', user: trainer2)
+
+dog5 = Dog.create!(name: "Rookie", breed: breed_list[5], birthday: "2019-08-15", gender: 'Male', user: trainer3)
 
 # Dummy blog posts
 
