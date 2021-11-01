@@ -8,7 +8,7 @@
 
 # Dummy users 
 intro_admin = "Hello, I'm a the owner of Webdog. Happy to have you! 
-Our goal is to raise the standards in the dog-training industry as we advocate for the latest in scientific understanding of dog behavior while balancing this approach with twenty-first century ethics. A strong proponent of positive reinforcement dog training, we want to spread the message that people shouldn’t treat their dogs like members of a pack because these domesticated animals are a far cry from the ancient wolves they descended from. Also, rather than relying on a one-size-fits-all methodology, our fresh, positive approach allow people to tailor their training to their dog's unique personality and energy level, leading to quicker results and a much happier pet. "
+Our goal is to raise the standards in the dog-training industry as we advocate for the latest in scientific understanding of dog behavior while balancing this approach with twenty-first century ethics."
 intro_trainer = "Hello, I'm a certified dog trainer at Webdog. You can schedule classes with me. Regardless of your dog’s breed or behavior issues, you’ll be amazed at how quickly your dog responds to our training."
 intro_client = "Hello, I'm a client at Webdog. Let's train my dog!"
 
