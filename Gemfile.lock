@@ -198,6 +198,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.5.1)
     regexp_parser (2.1.1)
     ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
@@ -253,7 +254,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
-  x86_64-linux
 
 DEPENDENCIES
   bcrypt
@@ -272,6 +272,7 @@ DEPENDENCIES
   pg
   puma (~> 3.7)
   rails (~> 5.1.7)
+  redis (~> 4.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
