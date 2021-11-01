@@ -2,7 +2,7 @@ class ChatController < ApplicationController
   def index
     session[:conversations] ||= []
 
-    @users = User.all.where.not(id: current_user)
+    @users = User.all.where.not(id: current_user).order(id: :asc)
     existing = []
 
     for index in session[:conversations] do

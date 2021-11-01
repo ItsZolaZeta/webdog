@@ -34,7 +34,9 @@
   <div class="columns">
     <div class="column is-two-fifths">
       <figure class="image is-4by3">
-        <%= image_tag @user.dog.photo, alt:  "Avatar for #{@user.name}'s dog"%>
+        <% if @user.dog.present? %>
+          <%= image_tag @user.dog.photo, alt:  "Avatar for #{@user.name}'s dog"%>
+        <% end %>
       </figure>
     </div>
     <div class="column mx-6 my-3">

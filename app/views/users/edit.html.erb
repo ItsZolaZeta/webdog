@@ -26,7 +26,7 @@
         <div class="field">
           <%= form.label :role, class: 'label' %>
           <div class="control">
-            <%= form.select(:role, %w(admin trainer client), {}, class: 'select') %>
+            <%= form.select(:role, ['admin', 'trainer', 'client'], {}, class: 'select') %>
           </div>
         </div>
 
