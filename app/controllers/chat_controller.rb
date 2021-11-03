@@ -1,4 +1,7 @@
 class ChatController < ApplicationController
+  
+  before_action :ensure_authenticated
+
   def index
     session[:conversations] ||= []
 

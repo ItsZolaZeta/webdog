@@ -13,6 +13,8 @@ Webdog is the website that allows a dog training center of a handful of certifie
 
 Implementing the chat room feature was very challenging. Learning about Action Cable and how WebSockets work completely on my own was very rewarding. There were some more hiccups along the way, especially for deploying the app into production on Heroku. Lots of additional configuration was necessary in order for the connection to be correctly set up, but like any programmer, searching online for the solution was the way to go. 
 
+Since Action Cable uses a redis server in deployment, when the website was first deployed, /cable didn't know where to store data and wasn't working. I had to ask include the "Redis To Go" add-on provided by Heroku, ask for a unique Redis server URL for the website.  
+
 ## Differences from the [project proposal](https://github.com/epfl-extension-school/capstone-proposal-wad-c5-s1-4920-2690)
 
 The chat room was a bonus feature in the proposal, but since it's working, there are a few extra gems and models added to the project.
@@ -39,7 +41,7 @@ belongs_to :conversation | conversation_id
 
 Since the guidelines for the capstone project require the usage of a third party API, I decided to use Calendly to handle the scheduling and booking of classes on the website. Unfortunately, the types of events suited for a dog training center fall under Calendly's paying features. Therefore, the website's calendly widget only has the option for the private 1-on-1 class. 
 
-If there was no constraint to use a third party API, the entire scheduling and booking of events could've been coded into the app as models. Trainers could create events to which clients could subscribe to. A model that could serve this purpose:
+If there was no constraint to use a third party API, the entire scheduling and booking of events could've been coded into the app as models. Trainers could create events to which clients could register to say they are coming. A model that could serve this purpose:
 
 ### _Event: details the characteristics of an event_
 
@@ -50,6 +52,10 @@ has_many :participants (User) | [ participant_id ]
 \- | date and time
 \- | maximum capacity (number)
 \- | restrictions on age of dogs (date)
+
+## Future Features
+
+For further enrichment of the website, an in-app payment system could be added. For example by using Stripe and their API to accept payments for one-off classes or subscription classes that clients can register to on the website. 
  
 ## Technologies
 
