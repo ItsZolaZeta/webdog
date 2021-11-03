@@ -25,6 +25,6 @@ production:
   encoding: unicode
   database: webdog
   pool: 5
-  username: webdog
-  password: galvezEPFL
+  username: <%= ENV["PG_USERNAME"] %>
+  password: <%= ENV["PG_PASSWORD"] %>
 

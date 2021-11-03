@@ -46,6 +46,14 @@ img {
   background-color: hsl(171, 100%, 41%);
   border-color: hsl(171, 100%, 41%);
 }
+
+.delete:hover {
+  background-color: hsl(348, 100%, 61%);
+}
+
+.button.is-primary.is-light:hover, .button.is-primary.is-light.is-hovered{
+  background-color: #ceece7;
+}
 // ------------------------------------- Custom Photo Slider (JS) --------------------------------------
 
 * {box-sizing:border-box}

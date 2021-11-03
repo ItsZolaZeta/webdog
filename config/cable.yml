@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:eb9c865cead2da6d57ee0b6c48402419@scat.redistogo.com:11392/
+  url: <%= ENV["REDISTOGO_URL"] %>
   channel_prefix: webdog_production
